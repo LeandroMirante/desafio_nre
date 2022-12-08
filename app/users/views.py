@@ -13,7 +13,7 @@ from django.db.models import Q
 from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
-from django.utils.encoding import smart_str, smart_bytes, DjangoUnicodeDecodeError
+from django.utils.encoding import smart_str, smart_bytes
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from .utils import Util
 from rest_framework.response import Response
@@ -126,7 +126,7 @@ class PasswordTokenCheckAPI(generics.GenericAPIView):
                 status=status.HTTP_200_OK,
             )
 
-        except:
+        except User.DoesNotExist:
             return Response(
                 {"error": "Token not valid"}, status=status.HTTP_401_UNAUTHORIZED
             )

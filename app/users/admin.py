@@ -5,10 +5,6 @@ from .models import Customer, Company
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import User
 
-from django.utils.html import format_html
-
-from config.settings.local import MEDIA_ROOT
-
 
 class UserAdmin(BaseUserAdmin):
     model = User
@@ -159,20 +155,6 @@ class CustomerAdmin(BaseUserAdmin):
         return qs.filter(Q(company_name=request.user) | Q(id=request.user.id))
 
         # list_display = ('id', 'name', 'embed_pdf')
-
-    def embed_pdf(self, obj):
-        # check for valid URL and return if no valid URL
-        try:
-            url = MEDIA_ROOT + obj.documents.url
-            html = (
-                '<embed src="'
-                + url
-                + '" type="application/pdf", width="250", height="200">'
-            )
-            formatted_html = format_html(html.format(url=obj.documents.url))
-            return formatted_html
-        except:
-            pass
 
 
 admin.site.register(User, UserAdmin)

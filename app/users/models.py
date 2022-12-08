@@ -139,10 +139,10 @@ class Customer(User):
 
 def deactivateCustomers(sender, instance, created, **kwargs):
     for j in Customer.objects.all():
-        if str(instance) == str(j.company_name) and instance.is_active == False:
+        if str(instance) == str(j.company_name) and instance.is_active is False:
             j.is_active = False
             j.save()
-        if str(instance) == str(j.company_name) and instance.is_active == True:
+        if str(instance) == str(j.company_name) and instance.is_active is True:
             j.is_active = True
             j.save()
 

@@ -109,7 +109,7 @@ class SetNewPasswordSerializer(serializers.Serializer):
             user.set_password(password)
             user.save()
             return user
-        except:
+        except User.DoesNotExist:
             raise AuthenticationFailed("The reset link is invalid (exception)", 401)
 
 

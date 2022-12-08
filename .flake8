@@ -1,4 +1,3 @@
 [flake8]
-ignore = E501
 max-line-length = 160
-exclude=*/migrations/*,__init__.py
+exclude=*/migrations/*,__init__.py,local.py
