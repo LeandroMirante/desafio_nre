@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "custom-user-model"
+version = "0.1.0"
+description = ""
+authors = ["Leandro Mirante <leandro.mirante@hotmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "^4.1.2"
+django-model-utils = "^4.2.0"
+utils = "^1.0.1"
+django-multiselectfield = "^0.1.12"
+django-cpf = "^0.1.0"
+django-cpf-cnpj = "^1.0.0"
+Pillow = "^9.2.0"
+django-easy-pdf = "^0.1.1"
+xhtml2pdf = "^0.2.8"
+djangorestframework = "^3.14.0"
+djangorestframework-simplejwt = "^5.2.2"
+drf-yasg = "^1.21.4"
+django-jazzmin = "^2.6.0"
+pip = "^22.3.1"
+config = "^0.5.1"
+pre-commit = "^2.20.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
